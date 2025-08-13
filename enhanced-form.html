@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trendy Fashion — Enhanced Form</title>
+  <style>
+    :root{
+      --cream:#fff7f2;
+      --lilac:#8e7cc3;
+      --lilac-dark:#4b3f72;
+      --text:#2c2640;
+      --card:#ffffff;
+      --ok:#1e7f3f;
+      --warn:#b34700;
+      --error:#a40028;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Inter,"Helvetica Neue",Arial,sans-serif;
+      background:linear-gradient(180deg,var(--cream),#f9f4ff 60%);
+      color:var(--text);
+      line-height:1.45;
+    }
+    header{
+      background:var(--lilac-dark);
+      color:#fff;
+      padding:1.5rem 1rem;
+    }
+    header .wrap, main .wrap, footer .wrap{max-width:980px;margin:auto}
+    nav a{
+      color:#e9e6f9;text-decoration:none;margin-right:1rem;font-weight:600
+    }
+    nav a:focus, nav a:hover{color:#fff;text-decoration:underline}
+    .hero{
+      display:grid;gap:1rem;grid-template-columns:1.4fr 1fr;
+      align-items:center;padding:1.25rem 0;
+    }
+    .hero h1{margin:.2rem 0 0;font-size:clamp(1.8rem,3.8vw,2.6rem);line-height:1.1}
+    .tag{display:inline-block;background:#ede7ff;color:var(--lilac-dark);padding:.25rem .5rem;border-radius:999px;font-size:.85rem;margin-top:.5rem}
+    figure{margin:0;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+    figure img{display:block;width:100%;height:auto}
+    main{padding:1.25rem}
+    .grid{
+      display:grid;gap:1rem;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      align-items:start;
+    }
+    section, article, aside{
+      background:var(--card);
+      border:1px solid #eee;
+      border-radius:16px;
+      padding:1rem;
+      box-shadow:0 4px 16px rgba(0,0,0,.05);
+    }
+    h2{color:var(--lilac-dark);margin:.2rem 0 .8rem}
+    /* table */
+    table{width:100%;border-collapse:collapse;border:1px solid #eee}
+    caption{caption-side:top;text-align:left;font-weight:700;margin-bottom:.5rem}
+    th, td{padding:.6rem;border-top:1px solid #eee}
+    thead th{background:#f3efff}
+    tbody tr:nth-child(even){background:#faf8ff}
+    th[scope=col]{text-align:left}
+    /* list styles */
+    ul{padding-left:1.1rem}
+    dl{margin:0}
+    dt{font-weight:700}
+    dd{margin:0 0 .6rem 0.75rem}
+    /* form */
+    form{
+      display:grid;gap:.9rem;
+    }
+    fieldset{
+      border:1px solid #e8e4ff;border-radius:12px;padding:1rem
+    }
+    legend{
+      font-weight:700;color:var(--lilac-dark);padding:0 .3rem
+    }
+    label{display:block;font-weight:600;margin-bottom:.25rem}
+    .row{display:grid;gap:.75rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    input, select, textarea{
+      width:100%;padding:.6rem .7rem;border:1px solid #d9d6f7;border-radius:10px;background:#fff;
+      font:inherit
+    }
+    input:focus, select:focus, textarea:focus{outline:3px solid #dcd4ff;border-color:var(--lilac)}
+    .hint{font-size:.85rem;color:#5b557a}
+    .readonly{background:#faf9ff}
+    .req::after{content:" *";color:var(--error);font-weight:700}
+    .actions{display:flex;gap:.75rem;flex-wrap:wrap}
+    button{
+      appearance:none;border:0;border-radius:999px;padding:.65rem 1.1rem;font-weight:700;cursor:pointer
+    }
+    .primary{background:var(--lilac-dark);color:#fff}
+    .ghost{background:#ece8ff;color:var(--lilac-dark)}
+    .note{border-left:4px solid var(--lilac);padding:.6rem .8rem;background:#f7f4ff;border-radius:8px}
+    footer{padding:1.5rem 1rem;color:#463e6b}
+    /* accessibility helpers */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <div class="wrap">
+      <nav aria-label="Primary">
+        <a href="#shop">Shop</a>
+        <a href="#about">About</a>
+        <a href="#order">Order</a>
+      </nav>
+      <div class="hero">
+        <div>
+          <h1 id="site-title">Trendy Fashion</h1>
+          <p class="hint">Unisex joggers, tees & everyday fits — lilac & cream vibes.</p>
+          <span class="tag" aria-describedby="tagdesc">New drop: breathable joggers</span>
+          <span id="tagdesc" class="sr-only">New product announcement</span>
+        </div>
+        <figure aria-labelledby="figcap">
+          <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?q=80&w=1200&auto=format&fit=crop" alt="Two people in stylish unisex joggers standing by a wall">
+          <figcaption id="figcap" class="hint">Unisex joggers — soft feel, tapered fit.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <div class="grid">
+      <!-- LISTS -->
+      <section aria-labelledby="features" id="about">
+        <h2 id="features">Why shoppers love Trendy</h2>
+        <ul>
+          <li>Unisex sizing with inclusive fit.</li>
+          <li>Soft, breathable fabrics for hot weather.</li>
+          <li>Easy returns within 14 days.</li>
+        </ul>
+        <h3 class="hint" style="margin-top:.8rem">Care Glossary (Definition List)</h3>
+        <dl>
+          <dt>Machine-wash cold</dt>
+          <dd>Preserves fabric color and shape.</dd>
+          <dt>Tumble dry low</dt>
+          <dd>Prevents shrinkage and pilling.</dd>
+          <dt>Do not bleach</dt>
+          <dd>Protects lilac dyes from fading.</dd>
+        </dl>
+      </section>
+
+      <!-- TABLE -->
+      <article aria-labelledby="specs" id="shop">
+        <h2 id="specs">Joggers Size & Price Table</h2>
+        <table aria-describedby="tab-hint">
+          <caption>Unisex Joggers — Sizes, Waist, and Price</caption>
+          <thead>
+            <tr>
+              <th scope="col">Size</th>
+              <th scope="col">Waist (cm)</th>
+              <th scope="col">Inseam (cm)</th>
+              <th scope="col">Colorways</th>
+              <th scope="col">Price (₦)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">S</th><td>70–78</td><td>74</td><td>Lilac, Cream</td><td>18,500</td></tr>
+            <tr><th scope="row">M</th><td>79–86</td><td>76</td><td>Lilac, Cream, Black</td><td>19,500</td></tr>
+            <tr><th scope="row">L</th><td>87–94</td><td>78</td><td>Lilac, Cream</td><td>20,500</td></tr>
+            <tr><th scope="row">XL</th><td>95–104</td><td>80</td><td>Cream, Black</td><td>21,500</td></tr>
+          </tbody>
+        </table>
+        <p id="tab-hint" class="hint">Use this table to pick your fit before ordering.</p>
+      </article>
+
+      <!-- MEDIA -->
+      <aside aria-labelledby="media">
+        <h2 id="media">Lookbook (Media)</h2>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1520975922284-8b456906c813?q=80&w=1200&auto=format&fit=crop" alt="Close-up of lilac fabric texture">
+          <figcaption class="hint">Lilac shade, soft-hand feel.</figcaption>
+        </figure>
+        <div style="margin-top:.75rem">
+          <video controls width="100" style="width:100%;border-radius:12px">
+            <source src="https://cdn.coverr.co/videos/coverr-stylish-woman-on-the-street-4805/1080p.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <p class="hint">Quick street fit check.</p>
+          <audio controls style="width:100%">
+            <source src="https://www2.cs.uic.edu/~i101/SoundFiles/BabyElephantWalk60.wav" type="audio/wav" />
+            Your browser does not support the audio element.
+          </audio>
+          <p class="hint">Audio sample (for demo accessibility controls).</p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- FORM -->
+    <section aria-labelledby="order" id="order" style="margin-top:1rem">
+      <h2 id="order">Place Your Order (HTML5 Enhanced Form)</h2>
+      <p class="note">Fields marked with <span aria-hidden="true" style="color:var(--error);font-weight:700">*</span> are required. HTML5 validation is enabled.</p>
+
+      <form action="#" method="post" autocomplete="on" aria-describedby="form-help">
+        <!-- Hidden + readonly demo -->
+        <input type="hidden" name="csrf_token" value="abc123xyz">
+        <div class="row">
+          <div>
+            <label for="custId">Customer ID</label>
+            <input id="custId" name="customer_id" value="TF-2025-001" readonly class="readonly" aria-describedby="custIdHelp">
+            <div id="custIdHelp" class="hint">Readonly: auto-generated by system.</div>
+          </div>
+          <div>
+            <label class="req" for="fullname">Full Name</label>
+            <input id="fullname" name="full_name" type="text" placeholder="e.g., Olamide Afolayan" required minlength="3" autocomplete="name">
+          </div>
+          <div>
+            <label class="req" for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
+          </div>
+          <div>
+            <label class="req" for="phone">Phone (NG)</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="+2348012345678" required
+                   pattern="^(\+234|0)[0-9]{10}$"
+                   title="Enter Nigerian number like +2348012345678 or 08012345678"
+                   autocomplete="tel">
+          </div>
+        </div>
+
+        <fieldset>
+          <legend>Order Details</legend>
+          <div class="row">
+            <div>
+              <label class="req" for="product">Product</label>
+              <select id="product" name="product" required>
+                <option value="">-- Select an item --</option>
+                <option value="jogger-classic">Joggers — Classic</option>
+                <option value="jogger-lilac">Joggers — Lilac</option>
+                <option value="tee-unisex">Unisex Tee</option>
+              </select>
+            </div>
+            <div>
+              <label class="req" for="size">Size</label>
+              <div role="group" aria-labelledby="size">
+                <select id="size" name="size" required autocomplete="off">
+                  <option value="">-- Choose size --</option>
+                  <option>S</option><option>M</option><option>L</option><option>XL</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label class="req" for="qty">Quantity</label>
+              <input id="qty" name="quantity" type="number" required min="1" max="10" step="1" value="1">
+            </div>
+            <div>
+              <label for="color">Preferred Color</label>
+              <input id="color" name="color" type="color" value="#8e7cc3">
+              <div class="hint">Default set to our lilac.</div>
+            </div>
+            <div>
+              <label for="budget">Budget (₦)</label>
+              <input id="budget" name="budget" type="range" min="10000" max="50000" step="500" value="20000" />
+              <div class="hint" aria-live="polite">Drag to indicate your target spend.</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="url">Instagram / Website</label>
+              <input id="url" name="profile_url" type="url" placeholder="https://instagram.com/yourhandle" autocomplete="url">
+            </div>
+            <div>
+              <label class="req" for="pickup">Pickup Date</label>
+              <input id="pickup" name="pickup_date" type="date" required>
+            </div>
+            <div>
+              <label for="time">Preferred Time</label>
+              <input id="time" name="pickup_time" type="time">
+            </div>
+            <div>
+              <label for="city">City</label>
+              <input list="cities" id="city" name="city" placeholder="Start typing…" autocomplete="address-level2">
+              <datalist id="cities">
+                <option value="Lagos"></option>
+                <option value="Abuja"></option>
+                <option value="Ibadan"></option>
+                <option value="Port Harcourt"></option>
+                <option value="Benin City"></option>
+              </datalist>
+            </div>
+            <div>
+              <label for="ref">Referral Code (optional)</label>
+              <input id="ref" name="ref" type="text" pattern="^[A-Za-z0-9\-]{4,12}$" title="4–12 letters, numbers, or hyphen">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Preferences</legend>
+          <div class="row">
+            <div>
+              <label class="req">Fit</label>
+              <div role="group" aria-label="Fit options">
+                <label><input type="radio" name="fit" value="tapered" required> Tapered</label>
+                <label><input type="radio" name="fit" value="relaxed"> Relaxed</label>
+              </div>
+            </div>
+            <div>
+              <label>Add-ons</label>
+              <div role="group" aria-label="Add-on options">
+                <label><input type="checkbox" name="addon" value="giftwrap"> Gift wrap</label>
+                <label><input type="checkbox" name="addon" value="extra-laces"> Extra laces</label>
+              </div>
+            </div>
+            <div>
+              <label for="notes">Notes</label>
+              <textarea id="notes" name="notes" rows="3" placeholder="Any specific requests? e.g., sleeve length"></textarea>
+            </div>
+            <div>
+              <label for="proof">Upload Reference Image</label>
+              <input id="proof" name="proof" type="file" accept="image/*">
+              <div class="hint">Optional: PNG/JPG only.</div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Account Setup (optional)</legend>
+          <div class="row">
+            <div>
+              <label for="username">Username</label>
+              <input id="username" name="username" type="text" placeholder="min 4 chars"
+                     pattern="^[A-Za-z0-9_]{4,16}$" title="4–16 letters, numbers, underscore" autocomplete="username">
+            </div>
+            <div>
+              <label for="password">Password</label>
+              <input id="password" name="password" type="password" placeholder="At least 6 chars"
+                     minlength="6" autocomplete="new-password">
+            </div>
+          </div>
+        </fieldset>
+
+        <div>
+          <label class="req">
+            <input type="checkbox" name="terms" required>
+            I agree to the Terms & Returns Policy
+          </label>
+        </div>
+
+        <p id="form-help" class="hint">HTML5 validation will prompt you if any required field is missing or invalid.</p>
+
+        <div class="actions">
+          <button class="primary" type="submit">Submit Order</button>
+          <button class="ghost" type="reset">Reset</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="wrap">
+      <p><strong>Trendy Fashion</strong> — Unisex joggers & everyday wear. Built with semantic HTML, accessible labels, lists, tables, and media.</p>
+    </div>
+  </footer>
+</body>
+</html>
